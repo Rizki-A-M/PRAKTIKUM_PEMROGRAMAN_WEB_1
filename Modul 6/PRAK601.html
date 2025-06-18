@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>JPhotography</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+            <style>
+                /*Tampilan Scroll*/
+                html
+                {
+                    scroll-behavior: smooth;
+                }
+
+                #home
+                {
+                    scroll-margin-top: 150px;
+                }
+
+                #about_me
+                {
+                    scroll-margin-top: 50px;
+                }
+
+                #portofolio
+                {
+                    scroll-margin-top: 100px;
+                }
+
+                /*Setting Border Luar*/
+                .borders div 
+                {
+                    z-index: 9999;
+                    pointer-events: none;
+                    background-color: transparent;
+                    border-color: #252525;
+                    border-style: solid;
+                    height: 75px;
+                    position: fixed;
+                    width: 75px;
+                }
+
+                .BTR
+                {
+                    border-width: 6px 6px 0 0;
+                    right: 0;
+                    top: 0;
+                }
+
+                .BTL
+                {
+                    border-width: 6px 0 0 6px;
+                    left: 0;
+                    top: 0;
+                }
+
+                .BBR
+                {
+                    border-width: 0 6px 6px 0;
+                    right: 0;
+                    bottom: 0;
+                }
+
+                .BBL
+                {
+                    border-width: 0 0 6px 6px;
+                    left: 0;
+                    bottom: 0;
+                }
+
+                /*Default Font Html*/
+                body 
+                {
+                    font-family: 'Playfair Display', serif;
+                    background-color: #fff;
+                    color: #000;
+                }
+
+                /*Setting Navbar*/
+                .Custom-navbar-brand
+                {
+                    font-family: "Playfair Display", serif;
+                    font-weight: bold;
+                    font-size: 24px;
+                    padding-top: 7px;
+                    padding-bottom: 7px;
+                }
+
+                /*Button Navbar*/
+                a.nav-button
+                {
+                    font-family: 'Playfair Display', serif; 
+                    font-weight: bold;
+                    color: #4e4e4e;
+                    min-width: none;
+                    font-size: 16px;
+                    padding: 8px 8px;
+                    background-color: #e0e0e0;      
+                    border: 2px solid transparent;
+                    border-radius: 20px;
+                    cursor: pointer;
+                    transition: border-color 0.2s ease, color 0.2s ease;
+                }
+
+                a.nav-button:hover
+                {
+                    border: 2px solid #4e4e4e;
+                    border-radius: 20px;
+                }
+
+                a.nav-button.active 
+                {
+                    border: 2px solid #4e4e4e;
+                    border-radius: 20px;
+                }
+
+                /*Tampilan Teks Pembuka*/
+                p.Teks_1
+                {
+                    font-family: 'Playfair Display', serif; 
+                    font-weight: bold;
+                    font-size: 30px;
+                    line-height: 1;
+                    color: #222222;
+                    text-align: center;
+                    margin-top: 5rem;
+                }
+
+                p.Teks_2
+                {
+                    font-family: 'Playfair Display', serif;
+                    font-weight: bold;                       
+                    font-size: 24px;
+                    line-height: 1;
+                    color: #222222;
+                    text-align: center;
+                } 
+
+                p.Teks_3
+                {
+                    text-align: center;
+                    font-family: 'Montserrat', sans-serif;
+                    font-weight: 400;
+                    font-size: 12px;
+                    line-height: 1;
+                    margin-bottom: 15px;
+                    letter-spacing: 4.5px;
+                    color: #888888;
+                }
+
+                /*Button Menu Body*/
+                .filter-buttons
+                {
+                    font-family: 'Playfair Display', serif;
+                    text-align: center;
+                    margin: 30px 0 10px;
+                    margin-top: 3rem;
+                    color: #888888;
+                }
+
+                .filter-buttons .btn
+                {
+                    border-radius: 50px;
+                    padding: 5px 20px;
+                    color: #888888;
+                }
+                
+                /*Setting Galeri*/
+                .gallery 
+                {
+                    padding: 0 15px 50px;
+                }
+
+                .gallery .col-md-3
+                {
+                    margin-bottom: 20px;
+                }
+
+                .gallery img
+                {
+                    width: 100%;
+                    height: auto;
+                    aspect-ratio: 5/4;
+                    border-radius: 4px;
+                }
+                
+                /*Setting footer*/
+                .footer 
+                {
+                    background-color: #fff;
+                    text-align: center;
+                    padding: 40px 15px 60px;
+                }
+
+                .footer h5
+                {
+                    font-size: 1.7rem;
+                    font-weight: bold;
+                    margin-bottom: 0px;
+                }
+
+                .footer p
+                {
+                    margin: 0px;
+                    margin-bottom: 20px;
+                    font-size: 0.9rem;
+                    color: #666;
+                }
+
+                .footer i
+                {      
+                    font-size: 1.3rem;
+                    margin: 0 10px;
+                    color: #444;
+                }
+            </style>
+    </head>
+
+    <body>
+
+        <!--Border Luar-->
+            <div class="borders">
+                <div class="BTR"></div>
+                <div class="BTL"></div>
+                <div class="BBR"></div>
+                <div class="BBL"></div>
+            </div>
+
+        <!-- Navbar Tampilan -->
+            <nav class="navbar navbar-expand-lg navbar-light shadow-sm fixed-top" style="background-color: #e0e0e0;">
+                <div class="container">
+                    <a class="navbar-brand Custom-navbar-brand" href="#">Jphotography</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+        <!--Botton Navbar-->
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                        <ul class="navbar-nav m-2">
+                            <li class="nav-item pe-2">
+                                <a class="nav-button nav-link px-3" href="#home">HOME</a>
+                            </li>
+                            <li class="nav-item pe-2">
+                                <a class="nav-button nav-link px-3" href="#about_me">ABOUT ME</a>
+                            </li>
+                            <li class="nav-item pe-2">
+                                <a class="nav-button nav-link px-3" href="#portofolio">PORTOFOLIO</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-button nav-link px-3" href="#contact">CONTACT</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+        <!-- Introduction -->
+        <section id="home">
+            <section id="about_me">
+                <p class="Teks_1 pt-5">
+                    Hi. Hello.. I Am JohnDas...!
+                </p>
+                <p class="Teks_2">
+                    I Travel Around The World To Get The Best Photos.!
+                </p>
+                <p class="Teks_3">
+                    AWARD WINNING PHOTOGRAPHER / CINEMATOGRAPHER / WRITER
+                </p>
+            </section>
+        </section>
+
+        <!-- Button Menu Body -->
+        <section id="portofolio">
+            <div class="filter-buttons">
+                <button class="btn btn-outline active">All</button>
+                <button class="btn">Landscape</button>
+                <button class="btn">Portrait</button>
+                <button class="btn">Product</button>
+            </div>
+
+            <!-- Gallery -->
+            <div class="container gallery">
+                <div class="row">
+                <!-- 16 Placeholder Images -->
+                    <div class="col-md-3 col-sm-6"><img src="1-1.jpg" alt="img"></div>
+                    <div class="col-md-3 col-sm-6"><img src="1-2.jpg" alt="img"></div>
+                    <div class="col-md-3 col-sm-6"><img src="1-3.jpg" alt="img"></div>
+                    <div class="col-md-3 col-sm-6"><img src="1-4.jpg" alt="img"></div>
+                    <div class="col-md-3 col-sm-6"><img src="1-5.jpg" alt="img"></div>
+                    <div class="col-md-3 col-sm-6"><img src="1-6.jpg" alt="img"></div>
+                    <div class="col-md-3 col-sm-6"><img src="1-7.jpg" alt="img"></div>
+                    <div class="col-md-3 col-sm-6"><img src="1-8.jpg" alt="img"></div>
+                    <div class="col-md-3 col-sm-6"><img src="1-9.jpg" alt="img"></div>
+                    <div class="col-md-3 col-sm-6"><img src="1-10.jpg" alt="img"></div>
+                    <div class="col-md-3 col-sm-6"><img src="1-11.jpg" alt="img"></div>
+                    <div class="col-md-3 col-sm-6"><img src="1-12.jpg" alt="img"></div>
+                </div>
+            <section id="contact">
+                <div class="row">
+                    <div class="col-md-3 col-sm-6"><img src="1-13.jpg" alt="img"></div>
+                    <div class="col-md-3 col-sm-6"><img src="1-14.jpg" alt="img"></div>
+                    <div class="col-md-3 col-sm-6"><img src="1-15.jpg" alt="img"></div>
+                    <div class="col-md-3 col-sm-6"><img src="1-16.jpg" alt="img"></div>
+                </div>
+            </section>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <div class="footer">
+            <h5>Jphotography</h5>
+            <p>&copy; Copyrights 2025. All Rights Reserved.</p>
+            <div>
+                <i class="fa-brands fa-dribbble pe-2"></i>
+                <i class="fa-brands fa-behance pe-2"></i>
+                <i class="fa-brands fa-instagram pe-2"></i>
+                <i class="fa-brands fa-500px pe-2"></i>
+                <i class="fa-brands fa-flickr pe-2"></i>
+                <i class="fa-brands fa-square-facebook pe-2"></i>
+                <i class="fa-brands fa-x-twitter pe-2"></i>
+            </div>
+        </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>
